@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>{{ sitename }} - {{ pagename }}</h1>
+      <h1>{{ siteName }} - {{ pageName }}</h1>
       <button @click="toggleView">{{ cartCount }} {{ currentView === 'LessonsPage' ? 'Checkout' : 'Go Back' }}</button>
     </header>
     <LessonsPage v-if="currentView === 'LessonsPage'" :subjects="subjects" :cart="cart"
@@ -22,7 +22,7 @@ export default {
   name: 'App',
   data() {
     return {
-      sitename: 'After School Class',
+      siteName: 'After School Class',
       currentView: 'LessonsPage',
       cart: [],
       subjects: [],
@@ -35,7 +35,7 @@ export default {
   },
 
   computed: {
-    pagename() {
+    pageName() {
       return this.currentView === 'LessonsPage' ? 'Lessons' : 'Checkout';
     },
     cartCount() {
