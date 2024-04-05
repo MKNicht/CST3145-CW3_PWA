@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <h1>{{ siteName }} - {{ pageName }}</h1>
-      <button @click="toggleView">{{ cartCount }} {{ currentView === 'LessonsPage' ? 'Checkout' : 'Go Back' }}</button>
+      <button class="toggleView" @click="toggleView">{{ cartCount }} {{ currentView === 'LessonsPage' ? 'Checkout' : 'Go Back' }}</button>
     </header>
     <LessonsPage v-if="currentView === 'LessonsPage'" :subjects="subjects" :cart="cart"
       @add-to-cart="handleAddToCart" />
@@ -115,7 +115,13 @@ export default {
 
 
 <style>
-html {
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
   background-color: #99ccff;
   font-family: "Roboto", sans-serif;
 }
@@ -127,58 +133,14 @@ h1 {
   color: rgb(29, 72, 227);
 }
 
-img {
-  height: 100px;
-  width: 100px;
+.toggleView {
+    padding: 10px 20px;
+    background-color: #368ddf;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 50px;
+    transform: scale(1.5);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.subject-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-}
-
-.subject-box {
-  width: 25%;
-  height: 370px;
-  border: 5px solid #6699cc;
-  border-radius: 10%;
-  text-align: center;
-  font-size: 20px;
-  margin: 10px 2% 10px 2%;
-  background-color: #ccffff;
-  float: left;
-}
-
-.button,
-.checkout,
-.disabled,
-.valid {
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 15px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.button:hover,
-.checkout:hover {
-  background-color: #0056b3;
-}
-
-.disabled {
-  background-color: #ff0000;
-  cursor: not-allowed;
-}
-
-.valid {
-  background-color: #2cf733;
-}
 </style>

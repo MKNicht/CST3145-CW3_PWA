@@ -1,5 +1,5 @@
 <template>
-    <div class="lessons-page">
+  <div class="lessons-page">
     <div v-for="subject in subjects" :key="subject.id" class="lesson">
       <figure>
         <img :src="subject.image" :alt="subject.subject">
@@ -15,8 +15,8 @@
 
 <script>
 export default {
-    name: 'LessonsPage',
-    props: {
+  name: 'LessonsPage',
+  props: {
     cart: {
       type: Array,
       default: () => []
@@ -24,15 +24,6 @@ export default {
     subjects: {
       type: Array,
       default: () => []
-    }
-  },
-
-  computed: {
-    subjectsWithImages() {
-      return this.subjects.map(subject => ({
-        ...subject,
-        imageUrl: require(`@/assets/${subject.image}`)
-      }));
     }
   },
 
@@ -45,13 +36,30 @@ export default {
 </script>
 
 <style>
-.lesson {
-  margin-bottom: 20px;
+.lessons-page {
+  width: 100%;
+  height: auto;
+  display: flex;
 }
-.lesson figure, .lesson img {
-  width: 150px; 
+
+.lesson {
+  width: 25%;
+  height: 370px;
+  border: 5px solid #6699CC;
+  border-radius: 10%;
+  text-align: center;
+  font-size: 20px;
+  margin: 10px 2% 10px 2%;
+  background-color: #CCFFFF;
+  float: left;
+}
+
+.lesson figure,
+.lesson img {
+  width: 100px;
   height: auto;
 }
+
 .lesson img {
   display: block;
 }

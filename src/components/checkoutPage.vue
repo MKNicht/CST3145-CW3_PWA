@@ -20,7 +20,7 @@
         <h2>Cart</h2>
         <ul>
             <li v-for="(item, index) in cart" :key="item.id">
-                {{ item.subject }} - ${{ item.price }} - 數量: {{ item.quantity }}
+                {{ item.subject }} - ${{ item.price }} - Quantity: {{ item.quantity }}
                 <button @click="decreaseQuantity(index)">-1</button>
                 <button @click="removeItem(index)">Remove</button>
             </li>
@@ -125,4 +125,50 @@ export default {
 
 
 
-<style></style>
+<style>
+.checkout-page {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #CCFFFF;
+    border: 5px solid #6699CC;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.checkout-page input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.checkout-page button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.checkout-page button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.checkout-page .disabled {
+    background-color: #ff0000;
+    cursor: not-allowed;
+}
+
+.checkout-page .valid {
+    background-color: #2cf733;
+    color: #fff;
+}
+
+</style>
