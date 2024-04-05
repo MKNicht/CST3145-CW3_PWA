@@ -27,6 +27,15 @@ export default {
     }
   },
 
+  computed: {
+    subjectsWithImages() {
+      return this.subjects.map(subject => ({
+        ...subject,
+        imageUrl: require(`@/assets/${subject.image}`)
+      }));
+    }
+  },
+
   methods: {
     addToCart(subject) {
       this.$emit('add-to-cart', subject);
